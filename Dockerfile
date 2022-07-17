@@ -15,11 +15,11 @@ RUN apt-get update
 # RUN python3 -m pip install --disable-pip-version-check robotframework &&  pip install robotframework-selenium2library \
 #     && pip install xvfbwrapper && pip install robotframework-xvfb && pip install selenium
 
-# RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-#     && dpkg -i google-chrome*.deb \
-#     && rm google-chrome*.deb \
-#     && wget -q https://chromedriver.storage.googleapis.com/96.0.4664.45/chromedriver_linux64.zip \
-#     && unzip chromedriver_linux64.zip \
-#     && rm chromedriver_linux64.zip \
-#     && mv chromedriver /usr/local/bin \
-#     && chmod +x /usr/local/bin/chromedriver
+RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome*.deb \
+    && rm google-chrome*.deb \
+    && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
+    && unzip chromedriver_linux64.zip \
+    && rm chromedriver_linux64.zip \
+    && mv chromedriver /usr/local/bin \
+    && chmod +x /usr/local/bin/chromedriver
