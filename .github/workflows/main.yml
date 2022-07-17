@@ -21,4 +21,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag damarresin/matoa:$(date +%s)
     - name: Docker Push
-      run: docker push damarresin/matoa
+      run: docker push damarresin/matoa:$(date +%s)
