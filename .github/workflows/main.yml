@@ -1,17 +1,24 @@
-name: Deployment
+name: Docker Image CI
+
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
-  deploy:
+
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APPS_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKERHU_US}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHU_PAS}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag damarresin/matoa:$(date +%s)
+    - name: Docker Push
+      run: docker push damarresin/matoa
