@@ -14,7 +14,7 @@ RUN apt-get install -y xvfb wget ca-certificates fonts-liberation libasound2 lib
 
 RUN python3 -m pip install --upgrade pip
 
-RUN pip install --disable-pip-version-check
+RUN sudo pip install --disable-pip-version-check
 #     && pip install xvfbwrapper
 
 # RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
