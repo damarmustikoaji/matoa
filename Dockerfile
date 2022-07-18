@@ -2,6 +2,9 @@ FROM python:3
 
 LABEL name="Python 3 Automation Testing for Website"
 
+ARG DEBIAN_FRONTEND=noninteractive
+ARG DEBCONF_NOWARNINGS="yes"
+
 ENV PIP_NO_CACHE_DIR=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 
