@@ -9,7 +9,7 @@ env:
   REPO_NAME: ${{ secrets.DOCKERHUB_REPO }}
   
 jobs:
-  push-docker-hub:  # job name
+  push-dockerhub:  # job name
     runs-on: ubuntu-latest  # runner name : (ubuntu latest version) 
     steps:
     - uses: actions/checkout@v2 # first action : checkout source code
@@ -21,9 +21,5 @@ jobs:
       run: echo "::set-output name=date::$(date +'%Y-%m-%d_%M%S')"
     - name: Build the Docker image # push The image to the docker hub
       run: docker build . --file Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
-  push:
-    needs: push-docker-hub
-    runs-on: ubuntu-latest
-    steps:
     - name: Docker Push
       run: docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
