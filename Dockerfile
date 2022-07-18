@@ -14,8 +14,8 @@ RUN apt-get install -y xvfb wget ca-certificates fonts-liberation libasound2 lib
 
 RUN python3 -m pip install --upgrade pip
 
-# RUN python3 -m pip install --disable-pip-version-check robotframework &&  pip install robotframework-selenium2library \
-#     && pip install xvfbwrapper && pip install robotframework-xvfb && pip install selenium
+RUN python3 -m pip install --disable-pip-version-check \
+    && pip install xvfbwrapper
 
 # RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 #     && dpkg -i google-chrome*.deb \
