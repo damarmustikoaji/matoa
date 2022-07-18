@@ -17,9 +17,9 @@ RUN apt-get update
 
 RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome*.deb \
-    && rm google-chrome*.deb \
-    && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
-    && unzip chromedriver_linux64.zip \
-    && rm chromedriver_linux64.zip \
-    && mv chromedriver /usr/local/bin \
-    && chmod +x /usr/local/bin/chromedriver
+    && rm google-chrome*.deb
+#     && wget -q https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
+#     && unzip chromedriver_linux64.zip \
+#     && rm chromedriver_linux64.zip \
+#     && mv chromedriver /usr/local/bin \
+#     && chmod +x /usr/local/bin/chromedriver
