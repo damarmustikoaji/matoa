@@ -1,2 +1,7 @@
 # matoa
-Proyek Rebahan integrasi website php dengan api
+
+Docker Image - Automation Testing for Website
+
+## Detail
+- Python 3
+- Chrome Driver
